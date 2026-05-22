@@ -14,7 +14,7 @@ class GeminiBrain:
     def __init__(self):
         self.model = genai.GenerativeModel(MODEL_NAME)
         
-    def generate_daily_report(self, cycle_data, recovery_data, sleep_data, workouts_data):
+    def generate_daily_report(self, cycle_data, recovery_data, sleep_data, workouts_data, user_notes=""):
         baseline = MemoryManager.get_baseline()
         
         # Matemáticas de Calorías
@@ -53,6 +53,9 @@ Recuperación (Hoy): {recovery_data}
 
 HISTORIAL MÉDICO E INBODY (Baseline):
 {baseline}
+
+NOTAS ADICIONALES DEL USUARIO DE HOY (MUY IMPORTANTE):
+{user_notes if user_notes else 'Ninguna.'}
 
 INSTRUCCIONES CRÍTICAS:
 1. DEVUELVE ÚNICAMENTE UN JSON VÁLIDO. No agregues texto fuera del JSON.

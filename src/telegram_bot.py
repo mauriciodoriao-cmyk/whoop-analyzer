@@ -72,6 +72,7 @@ async def report_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Primero necesito que autorices a Whoop. Usa /start")
         return
         
+    user_notes = " ".join(context.args) if context.args else ""
     await update.message.reply_text("Generando tu reporte ejecutivo... 🔄 (Extrayendo datos de Whoop)")
     try:
         recovery = whoop.get_latest_recovery()
@@ -83,7 +84,7 @@ async def report_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             workouts = whoop.get_workouts_for_cycle(cycle.get('start'), cycle.get('end'))
         
         await update.message.reply_text("Analizando con Gemini y calculando calorías... 🧠")
-        json_report = brain.generate_daily_report(cycle, recovery, sleep, workouts)
+        json_report = brain.generate_daily_report(cycle, recovery, sleep, workouts, user_notes=user_notes)
         
         # Generar HTML y guardar
         base_dir = os.path.dirname(os.path.dirname(__file__))
