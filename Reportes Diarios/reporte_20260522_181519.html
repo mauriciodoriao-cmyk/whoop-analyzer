@@ -1,0 +1,115 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte Ejecutivo Whoop</title>
+        <style>
+    :root {
+        --mc-blue: #002D62;
+        --mc-olive: #556B2F;
+        --mc-brick: #C41E3A;
+        --mc-gray: #4A4A4A;
+        --mc-light-gray: #F4F6F8;
+    }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #E9ECEF; color: #333; line-height: 1.6; margin: 0; padding: 40px 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px 50px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 8px solid var(--mc-blue); }
+    h1 { color: var(--mc-blue); font-size: 2.2em; border-bottom: 2px solid var(--mc-brick); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+    h2 { color: var(--mc-olive); font-size: 1.5em; margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    p, li { font-size: 0.95em; color: #444; font-style: normal !important; }
+    strong { color: var(--mc-blue); }
+    
+    /* DASHBOARD GRID */
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .kpi-card { background: var(--mc-light-gray); border-left: 4px solid var(--mc-olive); padding: 20px; border-radius: 6px; }
+    .kpi-card.red { border-left-color: var(--mc-brick); }
+    .kpi-card.blue { border-left-color: var(--mc-blue); }
+    .kpi-value { font-size: 2.5em; font-weight: bold; color: var(--mc-blue); line-height: 1; margin-bottom: 5px; }
+    .kpi-label { font-size: 0.8em; text-transform: uppercase; color: #777; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+    .kpi-insight { font-size: 0.85em; color: #555; font-style: normal; }
+    
+    /* INBODY DASHBOARD */
+    .inbody-dashboard { margin-top: 30px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
+    .inbody-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; }
+    .kpi-mini { text-align: center; }
+    .kpi-mini .val { display: block; font-size: 1.5em; font-weight: bold; color: var(--mc-gray); }
+    .kpi-mini .lbl { display: block; font-size: 0.7em; text-transform: uppercase; color: #888; }
+    .kpi-mini .trend { display: block; font-size: 0.75em; color: var(--mc-olive); font-weight: bold; margin-top: 5px; }
+    
+    .footer { text-align: center; color: #888; margin-top: 50px; font-size: 0.8em; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Reporte Ejecutivo</h1>
+            
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value">53%</div>
+                    <div class="kpi-label">Recuperación</div>
+                    <div class="kpi-insight">La recuperación muestra una mejora constante en la VFC, aunque el RHR se mantiene en el límite superior del rango óptimo histórico. Se observa una resiliencia moderada.</div>
+                </div>
+                <div class="kpi-card blue">
+                    <div class="kpi-value">84%</div>
+                    <div class="kpi-label">Rendimiento de Sueño</div>
+                    <div class="kpi-insight">El rendimiento del sueño es del 84%, pero persiste una deuda de sueño considerable. Las fases de sueño profundo y REM son adecuadas para el tiempo dormido, aunque el número de ciclos es limitado.</div>
+                </div>
+                <div class="kpi-card red">
+                    <div class="kpi-value">12.3</div>
+                    <div class="kpi-label">Esfuerzo Ayer</div>
+                    <div class="kpi-insight">El esfuerzo físico registrado (12.3) es moderado, apropiado para una recuperación del 53%. Indica una gestión sostenible de la carga de entrenamiento.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">1917 kcal</div>
+                    <div class="kpi-label">Calorías Basales (Netas)</div>
+                    <div class="kpi-insight">Totales: 2066 kcal | Ejercicio: 149 kcal</div>
+                </div>
+            </div>
+
+            
+        <div class="inbody-dashboard">
+            <h3>Último InBody</h3>
+            <div class="inbody-grid">
+                <div class="kpi-mini">
+                    <span class="val">88.6 kg</span>
+                    <span class="lbl">Peso</span>
+                    <span class="trend">▼ -0.5 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">39.8 kg</span>
+                    <span class="lbl">Músculo</span>
+                    <span class="trend">▼ -0.3 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">19.0 kg</span>
+                    <span class="lbl">Grasa (kg)</span>
+                    <span class="trend">▼ -0.2 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">21.5%</span>
+                    <span class="lbl">% Grasa</span>
+                    <span class="trend">▼ -0.1%</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">50.9 L</span>
+                    <span class="lbl">Agua (L)</span>
+                    <span class="trend">▼ -0.2 L</span>
+                </div>
+            </div>
+        </div>
+        
+
+            <h2>Análisis Clínico</h2>
+            <div><p><strong>Análisis Clínico y Estratégico para Mauricio Doria Ortiz</strong></p><p>El presente informe evalúa las métricas fisiológicas diarias de Mauricio, contrastándolas con su perfil médico histórico, objetivos a largo plazo y la intervención terapéutica en curso. El análisis se centra en la optimización de la recuperación, el metabolismo y la composición corporal en el contexto de su disfunción del eje Hipotalámico-Pituitario-Adrenal (HPA) y la condición tiroidea.</p><ul><li><strong>Recuperación y Estado Fisiológico:</strong><p>La recuperación actual del <strong>53%</strong>, aunque es moderada, refleja una tendencia de mejora gradual. La Frecuencia Cardíaca en Reposo (RHR) de <strong>48 bpm</strong> está retornando al rango superior de su histórico óptimo (40-47 bpm), lo que representa una mejora significativa desde los 58 bpm registrados en enero. La Variabilidad de la Frecuencia Cardíaca (HRV) de <strong>59.6 ms</strong> también muestra una progresión positiva, superando considerablemente el mínimo de 44 ms de enero, aunque aún se encuentra por debajo del rango deseado de 65-75 ms. Esta dinámica sugiere una recuperación en curso del sistema nervioso autónomo y una respuesta favorable inicial al tratamiento con Cytomel, indicando una reducción de la carga alostática y una mejora en la resiliencia.</p></li><li><strong>Calidad del Sueño:</strong><p>El rendimiento del sueño de <strong>84%</strong> es favorable en términos de eficiencia. Sin embargo, se identifica una <strong>deuda de sueño acumulada significativa</strong>, ya que el tiempo total dormido (aproximadamente 6h 43m) fue considerablemente inferior a las 9h 48m que su cuerpo requería según la demanda fisiológica. A pesar de una adecuada distribución de las fases de sueño profundo (Slow Wave Sleep) y REM para el tiempo efectivo dormido, el bajo número de ciclos de sueño (3) y las 7 interrupciones registradas pueden afectar la consolidación de la recuperación neuronal y hormonal, crucial para la función del eje HPA y la flexibilidad metabólica.</p></li><li><strong>Gasto Calórico y Metabolismo (Respuesta a inquietud de Mauricio):</strong><p>El gasto calórico total registrado por Whoop fue de <strong>2066 kcal</strong>, con un gasto basal neto de <strong>1917 kcal</strong> y <strong>149 kcal</strong> atribuidas al entrenamiento de fuerza. Si bien el gasto basal se alinea con su rango actual de recuperación (1800-1900 cal/día), se mantiene por debajo de su objetivo de >2000 cal/día para optimizar el metabolismo. La percepción de Mauricio de &quot;pocas calorías&quot; es válida, ya que un gasto total de 2066 kcal puede ser limitante para la re-composición corporal y el aumento de masa muscular deseado, especialmente si las sesiones de entrenamiento de alta intensidad no se reflejan completamente en el cálculo de Whoop. Es fundamental recalibrar la percepción y el seguimiento del gasto energético, asegurando que la estrategia nutricional soporte un metabolismo anabólico sin depender de la sobreactivación del eje HPA, como ocurrió en el pasado (2016-2018). El aumento de la masa muscular (meta de 44-45 kg) será el principal motor para elevar el BMR de forma sostenible.</p></li><li><strong>Strain y Adaptación al Entrenamiento:</strong><p>El Strain diario de <strong>12.3</strong> es un nivel de esfuerzo moderado y se considera apropiado dada su recuperación del 53%. Esta carga permite mantener la estimulación del entrenamiento sin sobrecargar el sistema, lo cual es esencial para la recuperación del eje HPA y para permitir las adaptaciones fisiológicas a largo plazo. Mantener este equilibrio es crucial para evitar el estrés metabólico excesivo que podría revertir los progresos en la salud adrenal.</p></li><li><strong>Progresión de Composición Corporal (InBody):</strong><p>Los datos de InBody del 15 de mayo de 2026, en comparación con el 06 de mayo, muestran una tendencia positiva, aunque mínima: una ligera disminución del peso corporal (<strong>▼ 0.5 kg</strong>), una mínima reducción en la masa muscular (<strong>▼ 0.3 kg</strong>), y una favorable disminución del porcentaje de grasa (<strong>▼ 0.1%</strong>) y del peso total de grasa (<strong>▼ 0.2 kg</strong>). La grasa visceral se mantiene estable. Estos cambios, aunque pequeños, sugieren que las intervenciones están empezando a generar una re-composición corporal gradual. El desafío principal sigue siendo aumentar la masa muscular significativamente (actualmente 39.8 kg vs. meta de 44-45 kg) para impulsar el metabolismo basal y alcanzar los objetivos de composición corporal y flexibilidad metabólica.</p></li><li><strong>Impacto de la Medicación (Tiroides y HPA):</strong><p>La introducción de Cytomel 12.5mcg diario a partir del 11 de mayo es crítica para abordar la conversión deficiente de T4 a T3. Las mejoras observadas en RHR y HRV son consistentes con una respuesta metabólica y autonómica positiva a este ajuste. Continuar monitorizando estos biomarcadores será fundamental para evaluar la optimización tiroidea y la recuperación sostenida del eje HPA, pilares para alcanzar la salud celular y la flexibilidad metabólica deseada.</p></li></ul></div>
+
+            <h2>Plan de Acción</h2>
+            <ul><li>Priorizar la optimización del sueño, buscando extender el tiempo total en cama para mitigar la deuda acumulada y potenciar la recuperación global del sistema nervioso.</li><li>Reevaluar y validar el gasto calórico de los entrenamientos de fuerza para asegurar una cuantificación precisa del esfuerzo metabólico, complementando con una estrategia nutricional que soporte la construcción muscular y el aumento del BMR.</li><li>Continuar el régimen de medicación y suplementación, monitoreando la evolución de RHR y HRV como indicadores clave de la recuperación del eje HPA y la efectividad de la terapia tiroidea.</li><li>Mantener un enfoque intensivo en el entrenamiento de fuerza para impulsar el aumento de masa muscular, objetivo crítico para elevar de forma sostenible el metabolismo basal y alcanzar las metas de composición corporal.</li></ul>
+
+            <div class="footer">
+                Generado por Whoop AI Assistant &bull; 22 de May, 2026
+            </div>
+        </div>
+    </body>
+    </html>
+    

@@ -8,7 +8,7 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 # Usamos el modelo Flash que es ultra rápido y extremadamente barato
-MODEL_NAME = 'gemini-2.5-flash'
+MODEL_NAME = 'gemini-1.5-flash'
 
 class GeminiBrain:
     def __init__(self):
