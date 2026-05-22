@@ -124,10 +124,28 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if os.path.exists(temp_path):
             os.remove(temp_path)
 
+import threading
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+class DummyHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+        self.wfile.write(b"Bot is running!")
+
+def run_dummy_server():
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(('0.0.0.0', port), DummyHandler)
+    server.serve_forever()
+
 def main():
     if not TELEGRAM_TOKEN:
         print("Falta TELEGRAM_BOT_TOKEN en el .env")
         return
+        
+    print("Iniciando servidor web falso para Render...")
+    threading.Thread(target=run_dummy_server, daemon=True).start()
         
     print("Iniciando Bot de Telegram...")
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
