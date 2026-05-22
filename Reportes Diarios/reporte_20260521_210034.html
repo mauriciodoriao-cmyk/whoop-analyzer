@@ -1,0 +1,115 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte Ejecutivo Whoop</title>
+        <style>
+    :root {
+        --mc-blue: #002D62;
+        --mc-olive: #556B2F;
+        --mc-brick: #C41E3A;
+        --mc-gray: #4A4A4A;
+        --mc-light-gray: #F4F6F8;
+    }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #E9ECEF; color: #333; line-height: 1.6; margin: 0; padding: 40px 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px 50px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 8px solid var(--mc-blue); }
+    h1 { color: var(--mc-blue); font-size: 2.2em; border-bottom: 2px solid var(--mc-brick); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+    h2 { color: var(--mc-olive); font-size: 1.5em; margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    p, li { font-size: 0.95em; color: #444; font-style: normal !important; }
+    strong { color: var(--mc-blue); }
+    
+    /* DASHBOARD GRID */
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .kpi-card { background: var(--mc-light-gray); border-left: 4px solid var(--mc-olive); padding: 20px; border-radius: 6px; }
+    .kpi-card.red { border-left-color: var(--mc-brick); }
+    .kpi-card.blue { border-left-color: var(--mc-blue); }
+    .kpi-value { font-size: 2.5em; font-weight: bold; color: var(--mc-blue); line-height: 1; margin-bottom: 5px; }
+    .kpi-label { font-size: 0.8em; text-transform: uppercase; color: #777; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+    .kpi-insight { font-size: 0.85em; color: #555; font-style: normal; }
+    
+    /* INBODY DASHBOARD */
+    .inbody-dashboard { margin-top: 30px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
+    .inbody-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; }
+    .kpi-mini { text-align: center; }
+    .kpi-mini .val { display: block; font-size: 1.5em; font-weight: bold; color: var(--mc-gray); }
+    .kpi-mini .lbl { display: block; font-size: 0.7em; text-transform: uppercase; color: #888; }
+    .kpi-mini .trend { display: block; font-size: 0.75em; color: var(--mc-olive); font-weight: bold; margin-top: 5px; }
+    
+    .footer { text-align: center; color: #888; margin-top: 50px; font-size: 0.8em; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Reporte Ejecutivo</h1>
+            
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value">70%</div>
+                    <div class="kpi-label">Recuperación</div>
+                    <div class="kpi-insight">La recuperación del 70% es sólida, impulsada por una Frecuencia Cardíaca en Reposo (RHR) de 46 bpm y una Variabilidad de la Frecuencia Cardíaca (HRV) de 67.2 ms. Estos valores demuestran una continuidad en la normalización fisiológica, con RHR dentro del rango histórico óptimo y HRV recuperándose consistentemente hacia los valores pre-enero de disfunción del eje HPA.</div>
+                </div>
+                <div class="kpi-card blue">
+                    <div class="kpi-value">84%</div>
+                    <div class="kpi-label">Rendimiento de Sueño</div>
+                    <div class="kpi-insight">Con un rendimiento del 84%, el sueño fue eficiente y consistente (92% cada uno), sin embargo, existe un déficit considerable. Se acumuló una deuda de sueño de 1.84 horas, sumado a 0.33 horas adicionales por la carga de esfuerzo reciente, totalizando una necesidad de sueño de 9.73 horas contra las 6.76 horas efectivamente dormidas. Las fases de sueño profundo (SWS) y REM necesitan optimización para maximizar los beneficios reparadores.</div>
+                </div>
+                <div class="kpi-card red">
+                    <div class="kpi-value">12.1</div>
+                    <div class="kpi-label">Esfuerzo Ayer</div>
+                    <div class="kpi-insight">El nivel de esfuerzo (Strain) de 12.1 indica una actividad física moderada que es coherente con una recuperación del 70%. Este balance es adecuado para promover la adaptación y el crecimiento sin generar un estrés excesivo que comprometa la recuperación general.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">1871 kcal</div>
+                    <div class="kpi-label">Calorías Basales (Netas)</div>
+                    <div class="kpi-insight">Totales: 2127 kcal | Ejercicio: 256 kcal</div>
+                </div>
+            </div>
+
+            
+        <div class="inbody-dashboard">
+            <h3>Último InBody</h3>
+            <div class="inbody-grid">
+                <div class="kpi-mini">
+                    <span class="val">88.6 kg</span>
+                    <span class="lbl">Peso</span>
+                    <span class="trend">▼ -0.5 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">39.8 kg</span>
+                    <span class="lbl">Músculo</span>
+                    <span class="trend">▼ -0.3 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">19.0 kg</span>
+                    <span class="lbl">Grasa (kg)</span>
+                    <span class="trend">▼ -0.2 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">21.5%</span>
+                    <span class="lbl">% Grasa</span>
+                    <span class="trend">▼ -0.1 %</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">50.9 L</span>
+                    <span class="lbl">Agua (L)</span>
+                    <span class="trend">▼ -0.2 L</span>
+                </div>
+            </div>
+        </div>
+        
+
+            <h2>Análisis Clínico</h2>
+            <div><p><strong>ANÁLISIS CLÍNICO INTEGRAL: EVALUACIÓN DE PROGRESO Y AJUSTES ESTRATÉGICOS</strong></p><p>El análisis de los datos recientes de Whoop en conjunción con el perfil médico de Mauricio Doria Ortiz revela una trayectoria positiva en múltiples indicadores fisiológicos, si bien persisten áreas críticas que requieren atención estratégica para alcanzar los objetivos definidos para octubre de 2026.</p><p><strong>1. Estado de Recuperación y Eje HPA:</strong></p><ul><li>La recuperación del 70% es un indicativo favorable. La <strong>Frecuencia Cardíaca en Reposo (RHR) de 46 bpm</strong> se sitúa firmemente dentro de su rango histórico óptimo (40-47 bpm) y representa una mejora significativa respecto a los 58 bpm observados en enero.</li><li>La <strong>Variabilidad de la Frecuencia Cardíaca (HRV) de 67.2 ms</strong> no solo ha recuperado su valor post-disfunción HPA (44 ms en enero) sino que ahora se encuentra dentro de su baseline histórico (65-75 ms). Esto sugiere una estabilización sostenida del sistema nervioso autónomo y una respuesta positiva a las intervenciones terapéuticas, incluyendo la medicación tiroidea y la suplementación. La normalización de estos biomarcadores es esencial para revertir los efectos de la saturación de receptores de catecolaminas y la 'fatiga adrenal' diagnosticada.</li></ul><p><strong>2. Optimización del Sueño:</strong></p><ul><li>A pesar de una buena consistencia y eficiencia (92% en ambos), el <strong>rendimiento del sueño del 84%</strong> está comprometido por un significativo déficit. La discrepancia entre las 6.76 horas dormidas y las 9.73 horas necesarias (considerando la línea base, la deuda acumulada y el impacto del esfuerzo reciente) es substancial.</li><li>Una duración insuficiente de sueño impacta directamente la capacidad de recuperación celular y la homeostasis hormonal, siendo contraproducente para los objetivos de flexibilidad metabólica y salud mitocondrial. La proporción de sueño de onda lenta (SWS) y REM, aunque presentes, debe ser monitoreada para asegurar su suficiencia en el contexto de las demandas fisiológicas de Mauricio.</li></ul><p><strong>3. Gasto Calórico y Metabolismo Basal:</strong></p><ul><li>El gasto calórico basal neto de <strong>1871 kcal</strong>, si bien superior a los 1500 kcal/día observados en el punto más bajo de la disfunción, aún se encuentra por debajo del objetivo de >2000 kcal/día. Esto subraya la necesidad de continuar enfocándose en la optimización metabólica a través de la dieta, el entrenamiento de fuerza y la modulación hormonal (tiroides).</li><li>El gasto calórico total de 2127 kcal, con 256 kcal provenientes del ejercicio, indica un nivel de actividad adecuado, pero la base metabólica sigue siendo un cuello de botella para la consecución de los objetivos de composición corporal y quema de grasa.</li></ul><p><strong>4. Impacto del Régimen de Tratamiento y Entrenamiento:</strong></p><ul><li>La introducción de <strong>Cytomel (12.5mcg diario desde el 11 de mayo)</strong> es una intervención clave para abordar la ineficiente conversión de T4 a T3. Se anticipa que esta adición, junto con la tiroides porcina, impactará positivamente la tasa metabólica basal y la salud celular en las próximas semanas. Es crucial monitorear la respuesta a esta medicación a través de biomarcadores y el rendimiento general.</li><li>El régimen de <strong>entrenamiento de fuerza (6 días/semana) y cardio</strong>, complementado con fútbol, es apropiado para estimular la hipertrofia y el gasto calórico, siempre que la recuperación lo permita. La capacidad de Mauricio para manejar un Strain de 12.1 con una recuperación del 70% sugiere una adaptación positiva, pero el déficit de sueño podría limitar la progresión a largo plazo.</li></ul><p><strong>5. Composición Corporal (InBody):</strong></p><ul><li>Los datos de InBody del 15 de mayo muestran un <strong>peso de 88.6 kg</strong> (reducción de 0.5 kg desde el 6 de mayo), <strong>masa muscular de 39.8 kg</strong> (reducción de 0.3 kg), y un <strong>porcentaje de grasa corporal del 21.5%</strong> (reducción de 0.1%). Aunque las tendencias son marginalmente descendentes en peso y grasa, y ligeramente descendentes en músculo, los valores actuales (39.8 kg de músculo vs. 44-45 kg objetivo; 21.5% grasa vs. 15% objetivo) indican un camino considerable por recorrer. La ligera pérdida de masa muscular requiere un análisis más profundo del balance proteico y la intensidad del entrenamiento frente a la recuperación.</li></ul><p>En resumen, Mauricio está demostrando una recuperación robusta en marcadores clave del sistema nervioso autónomo, lo cual es fundamental. Sin embargo, la optimización del sueño y la elevación sostenida del metabolismo basal son los próximos pilares críticos para acelerar el progreso hacia sus ambiciosos objetivos de composición corporal y flexibilidad metabólica.</p></div>
+
+            <h2>Plan de Acción</h2>
+            <ul><li>Priorizar la extensión del tiempo total de sueño para abordar la deuda acumulada y optimizar las fases de sueño profundo (SWS) y REM. Establecer un horario de sueño más estricto y fomentar un ambiente propicio para el descanso.</li><li>Monitorear de cerca la respuesta metabólica y la composición corporal al Cytomel introducido recientemente. Considerar ajustes dietéticos estratégicos para apoyar el aumento de la TMB y la preservación de la masa muscular, asegurando un aporte proteico adecuado.</li><li>Revisar el balance entre volumen e intensidad del entrenamiento de fuerza y la ingesta calórica/nutricional para optimizar la hipertrofia y prevenir cualquier pérdida muscular, especialmente ante la ligera tendencia a la baja en la masa muscular.</li></ul>
+
+            <div class="footer">
+                Generado por Whoop AI Assistant &bull; 21 de May, 2026
+            </div>
+        </div>
+    </body>
+    </html>
+    

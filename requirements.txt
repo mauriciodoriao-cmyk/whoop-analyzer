@@ -1,0 +1,12 @@
+python-telegram-bot>=21.1.1
+google-generativeai>=0.5.2
+python-dotenv>=1.0.1
+requests>=2.31.0
+google-api-python-client>=2.128.0
+google-auth-httplib2>=0.2.0
+google-auth-oauthlib>=1.2.0
+markdown>=3.6.0
+Pillow>=10.3.0
+python-dotenv>=1.0.1
+markdown2>=2.4.13
+pdfkit>=1.0.0
