@@ -82,6 +82,7 @@ class WhoopClient:
             "refresh_token": self.refresh_token,
             "client_id": self.client_id,
             "client_secret": self.client_secret,
+            "redirect_uri": REDIRECT_URI,
             "scope": "offline"
         }
         resp = requests.post(TOKEN_URL, data=data, verify=False, timeout=10)
