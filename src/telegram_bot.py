@@ -5,6 +5,11 @@ from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+
 from src.whoop_client import WhoopClient
 from src.gemini_brain import GeminiBrain
 from src.report_generator import generate_and_save_html_report
@@ -130,25 +135,29 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class DummyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        print(f"Health check recibido en puerto {self.server.server_port}", flush=True)
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
         self.wfile.write(b"Bot is running!")
+    def log_message(self, format, *args):
+        pass # Suppress default logging
 
 def run_dummy_server():
     port = int(os.environ.get("PORT", 8080))
     server = HTTPServer(('0.0.0.0', port), DummyHandler)
+    print(f"Dummy server escuchando en puerto {port}", flush=True)
     server.serve_forever()
 
 def main():
     if not TELEGRAM_TOKEN:
-        print("Falta TELEGRAM_BOT_TOKEN en el .env")
+        print("Falta TELEGRAM_BOT_TOKEN en el .env", flush=True)
         return
         
-    print("Iniciando servidor web falso para Render...")
+    print("Iniciando servidor web falso para Render...", flush=True)
     threading.Thread(target=run_dummy_server, daemon=True).start()
         
-    print("Iniciando Bot de Telegram...")
+    print("Iniciando Bot de Telegram...", flush=True)
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
     
     app.add_handler(CommandHandler("start", start))
@@ -156,6 +165,7 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
     
+    print("Bot de Telegram iniciado, esperando mensajes...", flush=True)
     app.run_polling()
 
 if __name__ == '__main__':
