@@ -1,0 +1,115 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte Ejecutivo Whoop</title>
+        <style>
+    :root {
+        --mc-blue: #002D62;
+        --mc-olive: #556B2F;
+        --mc-brick: #C41E3A;
+        --mc-gray: #4A4A4A;
+        --mc-light-gray: #F4F6F8;
+    }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #E9ECEF; color: #333; line-height: 1.6; margin: 0; padding: 40px 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px 50px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 8px solid var(--mc-blue); }
+    h1 { color: var(--mc-blue); font-size: 2.2em; border-bottom: 2px solid var(--mc-brick); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+    h2 { color: var(--mc-olive); font-size: 1.5em; margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    p, li { font-size: 0.95em; color: #444; font-style: normal !important; }
+    strong { color: var(--mc-blue); }
+    
+    /* DASHBOARD GRID */
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .kpi-card { background: var(--mc-light-gray); border-left: 4px solid var(--mc-olive); padding: 20px; border-radius: 6px; }
+    .kpi-card.red { border-left-color: var(--mc-brick); }
+    .kpi-card.blue { border-left-color: var(--mc-blue); }
+    .kpi-value { font-size: 2.5em; font-weight: bold; color: var(--mc-blue); line-height: 1; margin-bottom: 5px; }
+    .kpi-label { font-size: 0.8em; text-transform: uppercase; color: #777; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+    .kpi-insight { font-size: 0.85em; color: #555; font-style: normal; }
+    
+    /* INBODY DASHBOARD */
+    .inbody-dashboard { margin-top: 30px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
+    .inbody-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; }
+    .kpi-mini { text-align: center; }
+    .kpi-mini .val { display: block; font-size: 1.5em; font-weight: bold; color: var(--mc-gray); }
+    .kpi-mini .lbl { display: block; font-size: 0.7em; text-transform: uppercase; color: #888; }
+    .kpi-mini .trend { display: block; font-size: 0.75em; color: var(--mc-olive); font-weight: bold; margin-top: 5px; }
+    
+    .footer { text-align: center; color: #888; margin-top: 50px; font-size: 0.8em; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Reporte Ejecutivo</h1>
+            
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value">53%</div>
+                    <div class="kpi-label">Recuperación</div>
+                    <div class="kpi-insight">HRV en 59.6 ms y RHR en 48.0 bpm demuestran una excelente tendencia de estabilizacion autonomica, muy cerca de sus rangos historicos optimos (40-47 bpm y 65-75 ms).</div>
+                </div>
+                <div class="kpi-card blue">
+                    <div class="kpi-value">84%</div>
+                    <div class="kpi-label">Rendimiento de Sueño</div>
+                    <div class="kpi-insight">Consistencia de sueno sobresaliente (94%) y alta eficiencia (91%), destacando 141 minutos de fase REM, fundamentales para la restauracion cognitiva y del eje endocrino.</div>
+                </div>
+                <div class="kpi-card red">
+                    <div class="kpi-value">12.3</div>
+                    <div class="kpi-label">Esfuerzo Ayer</div>
+                    <div class="kpi-insight">Esfuerzo moderado y controlado (Strain 12.3) derivado de una sesion breve de pesas (149 kcal) y compensado por un comportamiento marcadamente sedentario durante el dia.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">1917 kcal</div>
+                    <div class="kpi-label">Calorías Basales (Netas)</div>
+                    <div class="kpi-insight">Totales: 2066 kcal | Ejercicio: 149 kcal</div>
+                </div>
+            </div>
+
+            
+        <div class="inbody-dashboard">
+            <h3>Último InBody</h3>
+            <div class="inbody-grid">
+                <div class="kpi-mini">
+                    <span class="val">88.6 kg</span>
+                    <span class="lbl">Peso</span>
+                    <span class="trend">▼ -0.5 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">39.8 kg</span>
+                    <span class="lbl">Músculo</span>
+                    <span class="trend">▼ -0.3 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">19.0 kg</span>
+                    <span class="lbl">Grasa (kg)</span>
+                    <span class="trend">▼ -0.2 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">21.5%</span>
+                    <span class="lbl">% Grasa</span>
+                    <span class="trend">▼ -0.1%</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">50.9 L</span>
+                    <span class="lbl">Agua (L)</span>
+                    <span class="trend">▼ -0.2 L</span>
+                </div>
+            </div>
+        </div>
+        
+
+            <h2>Análisis Clínico</h2>
+            <div><p>El analisis fisiologico e historico de Mauricio revela una recuperacion metabolica sumamente favorable. Con una tasa metabolica basal neta de <strong>1917 kcal</strong>, nos posicionamos firmemente en el rango de recuperacion optimo (1800-1900 kcal/dia), superando de manera contundente la baja critica de 1500 kcal/dia experimentada en enero. Esto valida la efectividad del protocolo hormonal actual, especificamente la terapia con tiroides porcina matutina y Cytomel (12.5mcg) a las 1:00 PM, optimizando la conversion periferica de T4 a T3 activa.</p><p>El comportamiento autonomico actual, caracterizado por una Frecuencia Cardiaca en Reposo (RHR) de <strong>48.0 bpm</strong> y una Variabilidad Cardiaca (HRV) de <strong>59.6 ms</strong>, evidencia que el eje hipotalamo-hipofisis-adrenal (HPA) esta recuperando su resiliencia. El dia sedentario reportado en la oficina actuo como un factor amortiguador de estres parasimpatico; al evitar demandas elevadas en el sistema nervioso central, se evito una respuesta de compensacion simpatica (hipercortisolismo) que solia desencadenar la fatiga adrenal historica.</p><p>A pesar de un sueno altamente eficiente (91%) y con un notable volumen de fase REM, el score de recuperacion se situa en el 53% debido a una deuda de sueno acumulada. Es imperativo consolidar la ganancia de masa muscular en relacion a los ultimos datos de InBody, asegurando que la reduccion de peso observada se deba predominantemente a tejido adiposo y no a agua intracelular o masa muscular magra.</p></div>
+
+            <h2>Plan de Acción</h2>
+            <ul><li>Mantener la administracion innegociable de tiroides porcina en ayunas y Cytomel estrictamente a la 1:00 PM.</li><li>Implementar breves caminatas de baja intensidad (NEAT) de 5 a 10 minutos cada 2 horas durante la jornada de oficina para contrarrestar el sedentarismo extremo sin elevar el cortisol.</li><li>Asegurar un consumo de proteina consistente y la dosis de Dileucina y EEAs para mitigar la ligera perdida de masa magra detectada en el ultimo periodo.</li><li>Priorizar la consistencia en el horario de acostarse para reducir la deuda de sueno y permitir que la recuperacion diaria supere consistentemente el 65%.</li></ul>
+
+            <div class="footer">
+                Generado por Whoop AI Assistant &bull; 23 de May, 2026
+            </div>
+        </div>
+    </body>
+    </html>
+    

@@ -134,12 +134,15 @@ import threading
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class DummyHandler(BaseHTTPRequestHandler):
+    protocol_version = 'HTTP/1.1'
     def do_GET(self):
         print(f"Health check recibido en puerto {self.server.server_port}", flush=True)
+        response_body = b"Bot is running!"
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
+        self.send_header('Content-Length', str(len(response_body)))
         self.end_headers()
-        self.wfile.write(b"Bot is running!")
+        self.wfile.write(response_body)
     def log_message(self, format, *args):
         pass # Suppress default logging
 
