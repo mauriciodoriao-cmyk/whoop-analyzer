@@ -1,0 +1,115 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte Ejecutivo Whoop</title>
+        <style>
+    :root {
+        --mc-blue: #002D62;
+        --mc-olive: #556B2F;
+        --mc-brick: #C41E3A;
+        --mc-gray: #4A4A4A;
+        --mc-light-gray: #F4F6F8;
+    }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #E9ECEF; color: #333; line-height: 1.6; margin: 0; padding: 40px 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px 50px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 8px solid var(--mc-blue); }
+    h1 { color: var(--mc-blue); font-size: 2.2em; border-bottom: 2px solid var(--mc-brick); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+    h2 { color: var(--mc-olive); font-size: 1.5em; margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    p, li { font-size: 0.95em; color: #444; font-style: normal !important; }
+    strong { color: var(--mc-blue); }
+    
+    /* DASHBOARD GRID */
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .kpi-card { background: var(--mc-light-gray); border-left: 4px solid var(--mc-olive); padding: 20px; border-radius: 6px; }
+    .kpi-card.red { border-left-color: var(--mc-brick); }
+    .kpi-card.blue { border-left-color: var(--mc-blue); }
+    .kpi-value { font-size: 2.5em; font-weight: bold; color: var(--mc-blue); line-height: 1; margin-bottom: 5px; }
+    .kpi-label { font-size: 0.8em; text-transform: uppercase; color: #777; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+    .kpi-insight { font-size: 0.85em; color: #555; font-style: normal; }
+    
+    /* INBODY DASHBOARD */
+    .inbody-dashboard { margin-top: 30px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
+    .inbody-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; }
+    .kpi-mini { text-align: center; }
+    .kpi-mini .val { display: block; font-size: 1.5em; font-weight: bold; color: var(--mc-gray); }
+    .kpi-mini .lbl { display: block; font-size: 0.7em; text-transform: uppercase; color: #888; }
+    .kpi-mini .trend { display: block; font-size: 0.75em; color: var(--mc-olive); font-weight: bold; margin-top: 5px; }
+    
+    .footer { text-align: center; color: #888; margin-top: 50px; font-size: 0.8em; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Reporte Ejecutivo</h1>
+            
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value">53%</div>
+                    <div class="kpi-label">Recuperación</div>
+                    <div class="kpi-insight">HRV de 59.6 ms y RHR de 48 bpm demuestran la estabilizacion del eje HPA frente a la crisis de enero. La recuperacion en zona amarilla se debe principalmente a la deuda de sueno acumulada.</div>
+                </div>
+                <div class="kpi-card blue">
+                    <div class="kpi-value">84%</div>
+                    <div class="kpi-label">Rendimiento de Sueño</div>
+                    <div class="kpi-insight">Excelente consistencia (94%) y eficiencia de sueno (91%), pero con un deficit acumulado de 1.9 horas de sueno que limita la recuperacion celular.</div>
+                </div>
+                <div class="kpi-card red">
+                    <div class="kpi-value">12.3</div>
+                    <div class="kpi-label">Esfuerzo Ayer</div>
+                    <div class="kpi-insight">Esfuerzo moderado y controlado, ideal para mantener el estimulo de hipertrofia muscular sin activar de manera cronica la respuesta de estres adrenal.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">1917 kcal</div>
+                    <div class="kpi-label">Calorías Basales (Netas)</div>
+                    <div class="kpi-insight">Totales: 2066 kcal | Ejercicio: 149 kcal</div>
+                </div>
+            </div>
+
+            
+        <div class="inbody-dashboard">
+            <h3>Último InBody</h3>
+            <div class="inbody-grid">
+                <div class="kpi-mini">
+                    <span class="val">87.3 kg</span>
+                    <span class="lbl">Peso</span>
+                    <span class="trend">▼ -1.3 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">39.5 kg</span>
+                    <span class="lbl">Músculo</span>
+                    <span class="trend">▼ -0.3 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">18.3 kg</span>
+                    <span class="lbl">Grasa (kg)</span>
+                    <span class="trend">▼ -0.7 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">21.0%</span>
+                    <span class="lbl">% Grasa</span>
+                    <span class="trend">▼ -0.5%</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">50.5 L</span>
+                    <span class="lbl">Agua (L)</span>
+                    <span class="trend">▼ -0.4 L</span>
+                </div>
+            </div>
+        </div>
+        
+
+            <h2>Análisis Clínico</h2>
+            <div><p>El analisis clinico de Mauricio revela una respuesta altamente favorable al protocolo hormonal e integrativo actual. La introduccion de Cytomel (12.5mcg) a partir del 11 de mayo, en sinergia con la dosis matutina de tiroides porcina, esta logrando corregir de manera efectiva el deficit de conversion periferica de T4 a T3. Esto se evidencia en la recuperacion sostenida del metabolismo basal neto, que hoy se situa en 1917 kcal, consolidando la salida del estado de ahorro energetico patologico experimentado a inicios de ano.</p><p>Los biométricos del sistema nervioso autonomo confirman que la recuperacion del eje HPA progresa adecuadamente. Mantener una Frecuencia Cardiaca en Reposo (RHR) de 48 bpm y una Variabilidad Cardiaca (HRV) de 59.6 ms indica que el cuerpo ya no requiere una activacion simpatica artificial (catecolaminas elevadas por estres/desvelos) para sostener el metabolismo basal. La recuperacion del 53% no representa un retroceso clinico, sino una respuesta fisiologica predecible a la deuda de sueno acumulada de 1.9 horas, la cual debe ser mitigada para optimizar la salud mitocondrial y la regeneracion celular profunda.</p><p>La correlacion con el registro de InBody del 22 de mayo muestra resultados extraordinarios: una disminucion de peso neto de 1.3 kg en la ultima semana, de los cuales el 54% proviene directamente de grasa corporal pura (▼ -0.7 kg) con una reduccion del porcentaje de grasa general al 21.0%. El ligero descenso de masa muscular (▼ -0.3 kg) y agua (▼ -0.4 L) es comun en fases de transicion tiroidea, pero exige un control estricto de la ingesta de aminoacidos y estimulo de fuerza para blindar el objetivo de 44-45 kg de musculo hacia octubre de 2026.</p></div>
+
+            <h2>Plan de Acción</h2>
+            <ul><li>Mantener innegociable la toma de tiroides porcina (2 granos) en ayunas y Cytomel (12.5mcg) estrictamente a la 1:00 PM.</li><li>Priorizar el sueno de hoy para saldar la deuda acumulada de 1.9 horas, buscando acostarse 30 minutos antes de lo habitual.</li><li>Asegurar la suplementacion de soporte muscular de manera inmediata (10g de Creatina, DL185 Dileucina y EEAs) para detener la ligera fluctuacion de masa magra observada en el InBody.</li><li>Ejecutar entrenamiento de fuerza de alta tension mecanica limitando el volumen excesivo de cardio para no sobrecargar el cortisol.</li></ul>
+
+            <div class="footer">
+                Generado por Whoop AI Assistant &bull; 23 de May, 2026
+            </div>
+        </div>
+    </body>
+    </html>
+    

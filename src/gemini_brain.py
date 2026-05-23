@@ -122,9 +122,9 @@ Tu memoria/contexto actual es:
 {whoop_context}
 
 Si Mauricio dice "anota que..." o "guarda en memoria que..." o te pide actualizar su perfil, DEBES responder con EXACTAMENTE dos bloques de texto separados por una línea que diga "---UPDATE_MEMORY---".
-El primer bloque será tu respuesta normal en chat.
+El primer bloque será tu respuesta normal en chat. ¡ATENCIÓN AL FORMATO DEL CHAT!: Escríbela como texto plano muy limpio y profesional. NO USES ASTERISCOS (**) para negritas, NO USES SÍMBOLOS MATEMÁTICOS NI LATEX. Haz que parezca un mensaje premium de WhatsApp.
 El segundo bloque será EL NUEVO CONTENIDO COMPLETO Y REESCRITO DEL ARCHIVO medical_baseline.md (incluyendo la nueva información integrada de manera formal). 
-Si NO necesitas actualizar la memoria, solo responde de manera normal.
+Si NO necesitas actualizar la memoria, solo responde de manera normal usando este mismo formato limpio.
 """
         
         # En una app real, guardaríamos el chat_history en una base de datos.
@@ -157,8 +157,8 @@ Tu tarea es:
 3. Responder al usuario resumiendo los datos leídos y comparándolos con su registro anterior si existe.
 
 DEBES responder con EXACTAMENTE dos bloques de texto separados por una línea que diga "---UPDATE_MEMORY---".
-El primer bloque será tu respuesta normal en chat confirmando la lectura.
-El segundo bloque será EL NUEVO CONTENIDO COMPLETO Y REESCRITO DEL ARCHIVO medical_baseline.md.
+El primer bloque será tu respuesta normal en chat. ¡ATENCIÓN AL FORMATO DEL CHAT!: Escríbela como texto plano muy limpio y profesional. NO USES ASTERISCOS (**) para negritas, NO USES SÍMBOLOS MATEMÁTICOS NI LATEX (como $\rightarrow$). Si necesitas hacer listas, usa guiones normales (-). Si necesitas resaltar, usa MAYÚSCULAS o emojis sutiles. Haz que parezca un reporte premium enviado por WhatsApp.
+El segundo bloque será EL NUEVO CONTENIDO COMPLETO Y REESCRITO DEL ARCHIVO medical_baseline.md (este sí puede llevar Markdown).
 
 Memoria actual:
 {baseline}
