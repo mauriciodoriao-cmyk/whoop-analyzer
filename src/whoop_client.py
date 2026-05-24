@@ -81,11 +81,13 @@ class WhoopClient:
             "grant_type": "refresh_token",
             "refresh_token": self.refresh_token,
             "client_id": self.client_id,
-            "client_secret": self.client_secret,
-            "redirect_uri": REDIRECT_URI,
-            "scope": "offline"
+            "client_secret": self.client_secret
         }
-        resp = requests.post(TOKEN_URL, data=data, verify=False, timeout=10)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+        resp = requests.post(TOKEN_URL, data=data, headers=headers, verify=False, timeout=10)
         if resp.status_code == 200:
             tokens = resp.json()
             self.access_token = tokens.get("access_token")
