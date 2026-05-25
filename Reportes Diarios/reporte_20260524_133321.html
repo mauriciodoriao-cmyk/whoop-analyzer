@@ -1,0 +1,115 @@
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reporte Ejecutivo Whoop</title>
+        <style>
+    :root {
+        --mc-blue: #002D62;
+        --mc-olive: #556B2F;
+        --mc-brick: #C41E3A;
+        --mc-gray: #4A4A4A;
+        --mc-light-gray: #F4F6F8;
+    }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #E9ECEF; color: #333; line-height: 1.6; margin: 0; padding: 40px 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px 50px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 8px solid var(--mc-blue); }
+    h1 { color: var(--mc-blue); font-size: 2.2em; border-bottom: 2px solid var(--mc-brick); padding-bottom: 10px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+    h2 { color: var(--mc-olive); font-size: 1.5em; margin-top: 40px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    p, li { font-size: 0.95em; color: #444; font-style: normal !important; }
+    strong { color: var(--mc-blue); }
+    
+    /* DASHBOARD GRID */
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .kpi-card { background: var(--mc-light-gray); border-left: 4px solid var(--mc-olive); padding: 20px; border-radius: 6px; }
+    .kpi-card.red { border-left-color: var(--mc-brick); }
+    .kpi-card.blue { border-left-color: var(--mc-blue); }
+    .kpi-value { font-size: 2.5em; font-weight: bold; color: var(--mc-blue); line-height: 1; margin-bottom: 5px; }
+    .kpi-label { font-size: 0.8em; text-transform: uppercase; color: #777; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold; }
+    .kpi-insight { font-size: 0.85em; color: #555; font-style: normal; }
+    
+    /* INBODY DASHBOARD */
+    .inbody-dashboard { margin-top: 30px; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
+    .inbody-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px; }
+    .kpi-mini { text-align: center; }
+    .kpi-mini .val { display: block; font-size: 1.5em; font-weight: bold; color: var(--mc-gray); }
+    .kpi-mini .lbl { display: block; font-size: 0.7em; text-transform: uppercase; color: #888; }
+    .kpi-mini .trend { display: block; font-size: 0.75em; color: var(--mc-olive); font-weight: bold; margin-top: 5px; }
+    
+    .footer { text-align: center; color: #888; margin-top: 50px; font-size: 0.8em; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Reporte Ejecutivo</h1>
+            
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value">57%</div>
+                    <div class="kpi-label">Recuperación</div>
+                    <div class="kpi-insight">HRV estable en 60.7 ms y RHR en 49 bpm demuestran una solida adaptacion cardiovascular post-futbol, manteniendose cerca de sus optimos historicos.</div>
+                </div>
+                <div class="kpi-card blue">
+                    <div class="kpi-value">80%</div>
+                    <div class="kpi-label">Rendimiento de Sueño</div>
+                    <div class="kpi-insight">Eficiencia del 88.7% con alta calidad de sueno REM, aunque la deuda acumulada de sueno limita una recuperacion neurologica y hormonal completa.</div>
+                </div>
+                <div class="kpi-card red">
+                    <div class="kpi-value">16.8</div>
+                    <div class="kpi-label">Esfuerzo Ayer</div>
+                    <div class="kpi-insight">Esfuerzo cardiovascular alto derivado de los picos de intensidad en futbol. Cerca del limite sugerido para proteger la integridad del eje HPA.</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">2003 kcal</div>
+                    <div class="kpi-label">Calorías Basales (Netas)</div>
+                    <div class="kpi-insight">Totales: 2832 kcal | Ejercicio: 829 kcal</div>
+                </div>
+            </div>
+
+            
+        <div class="inbody-dashboard">
+            <h3>Último InBody</h3>
+            <div class="inbody-grid">
+                <div class="kpi-mini">
+                    <span class="val">87.3 kg</span>
+                    <span class="lbl">Peso</span>
+                    <span class="trend">▼ -1.3 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">39.5 kg</span>
+                    <span class="lbl">Músculo</span>
+                    <span class="trend">▼ -0.3 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">18.3 kg</span>
+                    <span class="lbl">Grasa (kg)</span>
+                    <span class="trend">▼ -0.7 kg</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">21.0%</span>
+                    <span class="lbl">% Grasa</span>
+                    <span class="trend">▼ -0.5%</span>
+                </div>
+                <div class="kpi-mini">
+                    <span class="val">50.5 L</span>
+                    <span class="lbl">Agua (L)</span>
+                    <span class="trend">▼ -0.4 L</span>
+                </div>
+            </div>
+        </div>
+        
+
+            <h2>Análisis Clínico</h2>
+            <div><p><strong>Analisis de la Dinamica Metabolica y Endocrina:</strong> El reporte de hoy revela un hito critico en la recuperacion metabolica de Mauricio. La quema basal neta alcanzo las <strong>2003 kcal</strong>, superando por primera vez el umbral objetivo de 2000 kcal diarias sin depender de estimulantes artificiales. Esto confirma que el protocolo de soporte tiroideo (Tiroides Porcina en ayunas y Cytomel a las 1:00 PM) esta logrando restablecer la termogenesis y optimizar la funcion mitocondrial, contrarrestando la deficiencia genetica de conversion de T4 a T3.</p><p><strong>Evaluacion del Eje HPA y Sistema Nervioso Autonomo (SNA):</strong> A pesar de un esfuerzo cardiovascular significativo (Strain de 16.8 con picos de intensidad en futbol), la Variabilidad de la Frecuencia Cardiaca (HRV) se asento en 60.7 ms y la Frecuencia Cardiaca en Reposo (RHR) en 49 bpm. En comparacion con la crisis de enero (HRV de 44 ms y RHR de 58 bpm), estos biomarcadores indican una resiliencia del SNA notablemente superior y una paulatina resensibilizacion de los receptores de catecolaminas. No obstante, la saturacion de oxigeno (SpO2) de 93.14% se encuentra en el rango inferior normal-bajo, lo cual denota una fatiga respiratoria aguda e hipoxia sistematica post-esfuerzo que debe ser vigilada.</p><p><strong>Correlacion de Composicion Corporal (InBody):</strong> La tendencia de la ultima semana muestra una reduccion de 1.3 kg de peso corporal, compuesta por 0.7 kg de tejido adiposo y solo 0.3 kg de masa muscular. Esta relacion de perdida de grasa respecto a musculo es altamente eficiente y valida la estrategia de mantener entrenamientos de hipertrofia de alta tension mecanica, aun en dias de menor volumen, evitando caer en el catabolismo inducido por el estres del cardio de alta intensidad.</p></div>
+
+            <h2>Plan de Acción</h2>
+            <ul><li>Priorizar la rehidratacion profunda con aporte de electrolitos para recuperar el volumen de agua corporal (actualmente en 50.5 L).</li><li>Asegurar la toma innegociable de Cytomel (12.5mcg) a las 1:00 PM para evitar baches de conversion de hormona tiroidea activa tras el estres sistemico de ayer.</li><li>Programar la sesion de pesas de hoy con enfoque puramente de tension mecanica e hipertrofia, evitando trabajo metabolico o de alta frecuencia cardiaca.</li><li>Establecer una ventana de descanso estricta esta noche para mitigar la deuda acumulada de sueno y permitir la estabilizacion de la saturacion de oxigeno.</li></ul>
+
+            <div class="footer">
+                Generado por Whoop AI Assistant &bull; 24 de May, 2026
+            </div>
+        </div>
+    </body>
+    </html>
+    

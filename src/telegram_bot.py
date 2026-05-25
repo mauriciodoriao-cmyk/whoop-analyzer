@@ -130,46 +130,56 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if os.path.exists(temp_path):
             os.remove(temp_path)
 
-import threading
-from http.server import BaseHTTPRequestHandler, HTTPServer
+import asyncio
+from aiohttp import web
 
-class DummyHandler(BaseHTTPRequestHandler):
-    protocol_version = 'HTTP/1.1'
-    def do_GET(self):
-        print(f"Health check recibido en puerto {self.server.server_port}", flush=True)
-        response_body = b"Bot is running!"
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html')
-        self.send_header('Content-Length', str(len(response_body)))
-        self.end_headers()
-        self.wfile.write(response_body)
-    def log_message(self, format, *args):
-        pass # Suppress default logging
-
-def run_dummy_server():
-    port = int(os.environ.get("PORT", 8080))
-    server = HTTPServer(('0.0.0.0', port), DummyHandler)
-    print(f"Dummy server escuchando en puerto {port}", flush=True)
-    server.serve_forever()
-
-def main():
+async def main():
     if not TELEGRAM_TOKEN:
         print("Falta TELEGRAM_BOT_TOKEN en el .env", flush=True)
         return
         
-    print("Iniciando servidor web falso para Render...", flush=True)
-    threading.Thread(target=run_dummy_server, daemon=True).start()
-        
-    print("Iniciando Bot de Telegram...", flush=True)
+    print("Configurando Bot de Telegram en Modo Webhook...", flush=True)
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
     
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("report", report_command))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
+
+    async def telegram_webhook(request: web.Request) -> web.Response:
+        await app.update_queue.put(
+            Update.de_json(data=await request.json(), bot=app.bot)
+        )
+        return web.Response()
+        
+    async def health_check(request: web.Request) -> web.Response:
+        print("Health check recibido", flush=True)
+        return web.Response(text="Bot is running!")
+
+    web_app = web.Application()
+    web_app.router.add_post(f"/{TELEGRAM_TOKEN}", telegram_webhook)
+    web_app.router.add_get("/", health_check)
+    web_app.router.add_get("/healthz", health_check)
     
-    print("Bot de Telegram iniciado, esperando mensajes...", flush=True)
-    app.run_polling()
+    port = int(os.environ.get("PORT", 8080))
+    url = "https://whoop-analyzer.onrender.com"
+    
+    runner = web.AppRunner(web_app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    
+    print(f"Iniciando aiohttp y webhook en puerto {port}...", flush=True)
+    async with app:
+        await app.bot.set_webhook(url=f"{url}/{TELEGRAM_TOKEN}")
+        await app.start()
+        await site.start()
+        print("¡Servidor Webhook iniciado y escuchando!", flush=True)
+        
+        await asyncio.Event().wait()
+        await site.stop()
 
 if __name__ == '__main__':
-    main()
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
