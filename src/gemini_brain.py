@@ -21,13 +21,15 @@ class GeminiBrain:
         # 1 kilojoule = 0.239006 kilocalories
         KJ_TO_KCAL = 0.239006
         
-        total_kj = cycle_data.get('score', {}).get('kilojoule', 0) if cycle_data else 0
+        score_obj = cycle_data.get('score') if cycle_data else None
+        total_kj = score_obj.get('kilojoule', 0) if score_obj else 0
         total_kcal = int(total_kj * KJ_TO_KCAL)
         
         workout_kcal = 0
         workout_details = []
         for w in workouts_data:
-            wk_kj = w.get('score', {}).get('kilojoule', 0)
+            w_score = w.get('score')
+            wk_kj = w_score.get('kilojoule', 0) if w_score else 0
             wk_kcal = int(wk_kj * KJ_TO_KCAL)
             workout_kcal += wk_kcal
             sport = w.get('sport_name', 'Actividad')
