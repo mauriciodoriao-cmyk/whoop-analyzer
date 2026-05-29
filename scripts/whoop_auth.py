@@ -14,7 +14,7 @@ AUTH_URL = "https://api.prod.whoop.com/oauth/oauth2/auth"
 TOKEN_URL = "https://api.prod.whoop.com/oauth/oauth2/token"
 
 # Scopes separados por espacio
-SCOPES = "read:recovery read:sleep read:cycles read:workout read:profile"
+SCOPES = "read:recovery read:sleep read:cycles read:workout read:profile offline"
 
 class OAuthHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -48,7 +48,7 @@ class OAuthHandler(BaseHTTPRequestHandler):
             "client_secret": CLIENT_SECRET,
             "redirect_uri": REDIRECT_URI
         }
-        response = requests.post(TOKEN_URL, data=data)
+        response = requests.post(TOKEN_URL, data=data, verify=False)
         
         if response.status_code == 200:
             tokens = response.json()
@@ -59,6 +59,16 @@ class OAuthHandler(BaseHTTPRequestHandler):
                 env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
                 set_key(env_path, "WHOOP_REFRESH_TOKEN", refresh_token)
                 print("\n[EXCELENTE] Refresh token obtenido y guardado en .env exitosamente!")
+                
+                # Subir a Google Drive
+                import sys
+                sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+                from src.drive_client import DriveClient
+                drive = DriveClient()
+                if drive.service:
+                    drive.upload_content(refresh_token, "whoop_token.txt")
+                    print("[EXCELENTE] Refresh token subido a Google Drive exitosamente!")
+                
                 print("El servidor local se cerrará. Puedes continuar con el Bot.")
             else:
                 print("\n[ERROR] No se recibió refresh_token en la respuesta.")
@@ -87,6 +97,8 @@ def main():
     print(url)
     print("==========================================================")
     print("\nIniciando servidor local en http://localhost:8000 esperando la redireccion...")
+    import webbrowser
+    webbrowser.open(url)
     
     server = HTTPServer(('localhost', 8000), OAuthHandler)
     try:

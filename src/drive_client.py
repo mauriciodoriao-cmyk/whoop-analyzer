@@ -84,7 +84,7 @@ class DriveClient:
             return False
             
         query = f"name='{file_name}' and '{self.folder_id}' in parents and trashed=false"
-        results = self.service.files().list(q=query, spaces='drive', fields='files(id)').execute()
+        results = self.service.files().list(q=query, spaces='drive', fields='files(id)', orderBy='createdTime desc').execute()
         items = results.get('files', [])
         
         if not items:
@@ -110,7 +110,7 @@ class DriveClient:
             
         # Buscar si ya existe para actualizarlo o crearlo nuevo
         query = f"name='{file_name}' and '{self.folder_id}' in parents and trashed=false"
-        results = self.service.files().list(q=query, spaces='drive', fields='files(id)').execute()
+        results = self.service.files().list(q=query, spaces='drive', fields='files(id)', orderBy='createdTime desc').execute()
         items = results.get('files', [])
         
         file_metadata = {'name': file_name}
