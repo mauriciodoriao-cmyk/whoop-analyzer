@@ -97,11 +97,16 @@ INSTRUCCIONES CRÍTICAS:
 }}
 """
         # Configuramos el modelo para que obligatoriamente devuelva JSON
-        response = self.model.generate_content(
-            prompt,
-            generation_config=genai.GenerationConfig(response_mime_type="application/json")
-        )
-        return response.text
+        try:
+            response = self.model.generate_content(
+                prompt,
+                generation_config=genai.GenerationConfig(response_mime_type="application/json")
+            )
+            return response.text
+        except Exception as e:
+            if "429" in str(e) or "Quota exceeded" in str(e):
+                raise Exception("Límite de la versión gratuita de Gemini alcanzado (5 consultas por minuto). ¡Por favor espera 1 minuto y vuelve a intentarlo! ⏳")
+            raise e
 
     def chat_and_update_memory(self, user_message, chat_history, whoop_data=None):
         baseline = MemoryManager.get_baseline()
@@ -132,7 +137,12 @@ Si NO necesitas actualizar la memoria, solo responde de manera normal usando est
         # En una app real, guardaríamos el chat_history en una base de datos.
         # Aquí lo simplificamos a una llamada directa con contexto.
         full_prompt = f"{system_instruction}\n\nMensaje del usuario: {user_message}"
-        response = self.model.generate_content(full_prompt)
+        try:
+            response = self.model.generate_content(full_prompt)
+        except Exception as e:
+            if "429" in str(e) or "Quota exceeded" in str(e):
+                return "Límite de la versión gratuita de Gemini alcanzado. ¡Por favor espera 1 minuto y vuelve a hablarme! ⏳"
+            raise e
         
         text = response.text
         if "---UPDATE_MEMORY---" in text:
@@ -165,7 +175,12 @@ El segundo bloque será EL NUEVO CONTENIDO COMPLETO Y REESCRITO DEL ARCHIVO medi
 Memoria actual:
 {baseline}
 """
-        response = self.model.generate_content([prompt, img])
+        try:
+            response = self.model.generate_content([prompt, img])
+        except Exception as e:
+            if "429" in str(e) or "Quota exceeded" in str(e):
+                raise Exception("Límite de la versión gratuita de Gemini alcanzado. ¡Por favor espera 1 minuto y vuelve a intentarlo! ⏳")
+            raise e
         
         text = response.text
         if "---UPDATE_MEMORY---" in text:
