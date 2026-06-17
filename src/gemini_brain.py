@@ -7,8 +7,8 @@ from src.memory_manager import MemoryManager
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Usamos el modelo Flash que es ultra rápido y extremadamente barato
-MODEL_NAME = 'gemini-flash-latest'
+# Usamos la versión 1.5 de Flash que tiene límite gratuito de 1500 peticiones por día
+MODEL_NAME = 'gemini-1.5-flash'
 
 class GeminiBrain:
     def __init__(self):
@@ -78,7 +78,7 @@ INSTRUCCIONES CRÍTICAS:
   }},
   "clinical_analysis": "Un texto largo en HTML (usando <p>, <ul>, <strong>) con un análisis profundo, cruzando la información de hoy con su perfil médico, disfunción HPA, tiroides y metas. Sin itálicas, todo formal y profesional.",
   "inbody_history": {{
-    "has_data": true_o_false,
+    "has_data": true,
     "latest_weight": "XX kg",
     "weight_trend": "▲ +0.5 kg (opcional)",
     "latest_muscle": "XX kg",
@@ -96,13 +96,17 @@ INSTRUCCIONES CRÍTICAS:
   ]
 }}
 """
-        # Configuramos el modelo para que obligatoriamente devuelva JSON
         try:
-            response = self.model.generate_content(
-                prompt,
-                generation_config=genai.GenerationConfig(response_mime_type="application/json")
-            )
-            return response.text
+            response = self.model.generate_content(prompt)
+            # Limpiar posible formato markdown (```json ... ```)
+            text = response.text.strip()
+            if text.startswith("```json"):
+                text = text[7:]
+            if text.startswith("```"):
+                text = text[3:]
+            if text.endswith("```"):
+                text = text[:-3]
+            return text.strip()
         except Exception as e:
             if "429" in str(e) or "Quota exceeded" in str(e):
                 raise Exception("Límite de la versión gratuita de Gemini alcanzado (5 consultas por minuto). ¡Por favor espera 1 minuto y vuelve a intentarlo! ⏳")
