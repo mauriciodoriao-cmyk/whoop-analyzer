@@ -7,8 +7,8 @@ from src.memory_manager import MemoryManager
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# Usamos la versión 1.5 de Flash que tiene límite gratuito de 1500 peticiones por día
-MODEL_NAME = 'gemini-1.5-flash'
+# Usamos la versión 2.5 de Flash que tiene un límite gratuito amplio y está activa
+MODEL_NAME = 'gemini-2.5-flash'
 
 class GeminiBrain:
     def __init__(self):
