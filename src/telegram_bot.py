@@ -146,9 +146,23 @@ async def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     app.add_handler(MessageHandler(filters.PHOTO, handle_photo))
 
+    processed_updates = set()
+
     async def telegram_webhook(request: web.Request) -> web.Response:
+        data = await request.json()
+        update_id = data.get("update_id")
+        
+        # Ignorar retries duplicados de Telegram durante el cold-start
+        if update_id in processed_updates:
+            print(f"Ignorando update duplicado: {update_id}", flush=True)
+            return web.Response()
+            
+        processed_updates.add(update_id)
+        if len(processed_updates) > 500:
+            processed_updates.clear() # Limpiar memoria periódicamente
+            
         await app.update_queue.put(
-            Update.de_json(data=await request.json(), bot=app.bot)
+            Update.de_json(data=data, bot=app.bot)
         )
         return web.Response()
         
